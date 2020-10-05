@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
-from django.contrib.auth.models import PermissionMixin
+from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
 class UserProfileManager(BaseUserManager):
@@ -25,7 +25,7 @@ class UserProfileManager(BaseUserManager):
         return user
 
 
-class UserProfile(AbstractBaseUser,PermissionMixin):
+class UserProfile(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(unique=True, max_length=254)
     name = models.CharField(max_length=250)
     is_active = models.BooleanField(default = True)
